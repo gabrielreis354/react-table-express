@@ -3,14 +3,13 @@ import Axios from 'axios'
 import Dialog from '../Components/Modal/Dialog'
 import 
 {
-  Flex, Container, Table,
+  Flex, Table,
   Thead,
   Tbody,
   Tr,
   Th,
   Td,
   TableCaption,
-  TableContainer,
   Button,
   useDisclosure
 } from '@chakra-ui/react'
