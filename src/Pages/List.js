@@ -17,6 +17,10 @@ import
 
 export default function List(props) {
     const [list, setList] = useState();
+    const [Id, setId] = useState(0);
+    const [Marca, setMarca] = useState('');
+    const [Modelo, setModelo] = useState('');
+    const [Ano, setAno] = useState('');
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef()
     const finalRef = React.useRef()
@@ -27,6 +31,14 @@ export default function List(props) {
         });
     }); 
 
+    const setValue = (id, marca, modelo, ano) => {
+      setId(id);
+      setMarca(marca);
+      setModelo(modelo);
+      setAno(ano);
+      onOpen(true);
+    }
+
     return (
       <>
       <Dialog
@@ -36,19 +48,18 @@ export default function List(props) {
         initialRef={initialRef}
         finalRef={finalRef}
         //variaveis para o mysql 
-        id={5}            
-        marca={"list.Marca"}
-        modelo={"list.Modelo"}
-        ano={"list.Ano"}
+        id={Id}            
+        marca={Marca}
+        modelo={Modelo}
+        ano={Ano}
         listCard={list}
         setList={setList} 
       />
-      <Flex flexDirection="column" alignItems={'center'} justifyContent={'center'}>
+      <Flex flexDirection="column" alignItems={'center'} justifyContent={'center'} textAlign={'center'}>
         <Table variant='simple'>
           <TableCaption>Controle de Carros</TableCaption>
           <Thead>
             <Tr>
-              <Th>#</Th>
               <Th>Marca</Th>
               <Th>Modelo</Th>
               <Th>Ano</Th>
@@ -60,12 +71,11 @@ export default function List(props) {
               return (
                 <>     
                 <Tr key={value.Id}>
-                  <Td>{value.Id}</Td>
                   <Td>{value.Marca}</Td>
                   <Td>{value.Modelo}</Td>
                   <Td>{value.Ano}</Td>
                   <Td>
-                    <Button colorScheme={'blue'} onClick={onOpen}>Editar</Button>
+                    <Button colorScheme={'blue'} onClick={() => setValue(value.Id, value.Marca, value.Modelo, value.Ano)}>Editar</Button>
                   </Td>
                 </Tr>
                 </>
@@ -80,3 +90,5 @@ export default function List(props) {
         
   
 }
+
+

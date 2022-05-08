@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import Card from './Components/Cards/Card'
 import List from './Pages/List'
 import Cadastro from './Pages/Cadastro';
 import './App.css';
 import 
 {
-  Flex, Heading, FormControl, FormLabel, Input, Button, Container
+  Flex
 
 } from '@chakra-ui/react'
 
