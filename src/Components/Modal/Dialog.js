@@ -16,7 +16,7 @@ export default function Dialog(props) {
   });
 
   const handleEditCar = () => {
-    Axios.put("http:localhos:3001/edit", {
+    Axios.put("http://localhost:3001/edit", {
       id: editValues.id,
       marca: editValues.marca,
       modelo: editValues.modelo,
